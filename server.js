@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 const dep = __dirname + "/dist/activteller/index.html";
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8082;
 
 app.use(express.static(__dirname + "/dist/activteller"));
 
