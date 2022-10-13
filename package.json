@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server.js",
+    "heroku-start": "node server.js",
+    "build": "ng build --aot --configuration=production --delete-output-path --sourceMap=false --buildOptimizer",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --aot --configuration=production --delete-output-path  --base-href=/ --sourceMap=false --buildOptimizer"
   },
   "private": true,
   "dependencies": {
@@ -34,13 +36,17 @@
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^1.0.3",
     "autoprefixer": "^10.4.12",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "path": "^0.12.7",
     "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8",
     "typescript": "~4.6.2"
