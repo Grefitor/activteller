@@ -1,0 +1,223 @@
+@use './animations'as *;
+$dot-size: 1px;
+$dot-space: 10px;
+$bg-color: hsla(256, 33%, 70%, 0.616);
+$dot-color: var(--purple-none);
+/*=======BACKGROUND GRID==========*/
+.grid-bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -100;
+
+  &:before {
+    z-index: -100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: " ";
+    background-image: var(--grid-bg);
+    background-size: 80px 80px, 80px 80px;
+    background-position: -2px -2px, -2px -2px;
+    animation: gridWipe 2.5s ease-in;
+  }
+}
+
+/*==============================*/
+
+.retro-btn {
+  background-color: var(--main-bg);
+  box-shadow: var(--shadow-X) var(--shadow-Y) var(--blk-shadow);
+  padding: .5rem 1rem;
+  margin: 0 12px 12px 0;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--black);
+  color: var(--black);
+  font-size: 1rem;
+  transition: background-color 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  &:active:not(:disabled) {
+    box-shadow: none !important;
+    transform: translate(8px, 5px);
+  }
+
+  
+  &:hover:not(:disabled) {
+    background-color: var(--yellow) !important;
+  }
+
+  &:disabled {
+    
+    box-shadow: none;
+    cursor: not-allowed;
+    background-image:
+		linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+		linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+		$dot-color;
+		background-size: $dot-space $dot-space;
+    margin: 0 0;
+  }
+}
+
+.retro-icon-btn {
+  
+  @extend .retro-btn;
+  margin: 0 0;
+  padding: 0;
+  gap: 5px;
+  box-shadow: 3px 4px var(--blk-shadow);
+  &:not(:disable):active {
+    box-shadow: none !important;
+    transform: translate(3px, 4px);
+  }
+  &.with-hint {
+    padding: 0 5px;
+    &.display-hint {
+        .hint {
+          cursor: pointer;
+          transition: display ease 200ms;
+          font-size: .9rem;
+        }
+    }
+   
+    &:not(.display-hint){
+      &:hover {
+        .hint {
+          display: block;
+        } 
+      }
+      .hint {
+        display: none;
+        
+      }
+    }
+  }
+}
+
+
+.click-ripple {
+  // isolation: isolate;
+  position: absolute;
+  border-style: solid;
+  border-radius: 50%;
+  z-index: 9999;
+  //   cursor: pointer;
+  animation: ripple 0.25s ease;
+}
+
+
+@mixin retro-border-shadow($bg: var(--white), $border-width: var(--border-width), $border: var(--black), $shadow: var(--black), $X: var(--shadow-X), $Y:var(--shadow-Y), $display-shadow: true) {
+  background-color: $bg;
+  border: $border-width solid $border;
+  @if $display-shadow {
+    box-shadow: $X $Y $shadow;
+  }
+}
+
+
+.accent-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .accent {
+    height: 30px;
+    width: 370px;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    
+    .rect-1 {
+      background: none;
+      border: 3px solid var(--black);
+      grid-column: 1/10;
+      grid-row: 1/8;
+    }
+    
+    .rect-2 {
+      grid-column: 2/11;
+      grid-row: 4/10;
+    }
+  }
+}
+
+.green-bg {
+  background: var(--green-none);
+}
+.yellow-bg {
+  background: var(--yellow-none);
+}
+.purple-bg {
+  background: var(--purple-none);
+}
+
+.modal {
+  padding: 0;
+  height: fit-content;
+  width: fit-content;
+  overflow: initial;
+  @include scale-in-center(0.2s);
+
+  &::backdrop {
+    background-image: linear-gradient(90deg, rgba(242, 75, 214, 0.8562018557422969) 22%, rgba(112, 92, 242, 0.8281906512605042) 42%, rgba(5, 219, 242, 1) 100%);
+    background-size: 200% 200%;
+    animation: backdrop 60s ease infinite;
+  }
+}
+
+.loader {
+
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  isolation: isolate;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgba(242, 75, 214, 0.8562018557422969) 22%, rgba(112, 92, 242, 0.8281906512605042) 42%, rgba(5, 219, 242, 1) 100%);
+  background-size: 200% 200%;
+  animation: backdrop 60s ease infinite;
+  // padding-bottom: 1rem;
+  @include scale-in-center(0.25s);
+
+  .loader-text {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-size: 6rem;
+    text-shadow: .5rem .5rem 0 var(--purple-none);
+    margin-bottom: 10rem;
+    &:after {
+      content: attr(data-shadow);
+      position: absolute;
+      top: .6rem;
+      left: .8rem;
+      z-index: -1;
+      text-shadow: none;
+      background-image:
+        linear-gradient(45deg,
+          transparent 45%,
+          var(--green) 45%,
+          var(--blue) 55%,
+          transparent 0);
+      background-size: .5rem .5rem;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: shad-anim 100s linear infinite;
+    }
+  }
+
+}
+
+.d-none {
+  display: none;
+}

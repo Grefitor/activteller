@@ -1,0 +1,15 @@
+<div *ngIf="player" class="retro-card__box user-card {{!imageLoading ? 'image-loaded': ''}}">
+  <div class="card_image_loader">
+    <div class="spinner">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <img class="card_image" (load)="imageLoaded()" [src]="player.image" alt="" />
+  <p class="name px-1 text-center">{{player.name}}</p>
+  <button (click)="remove(player.id)" class="retro-btn remove" attr.aria-label="delete {{player.name}}">
+    <i class="gg-user-remove" aria-hidden="true"></i>
+  </button>
+</div>

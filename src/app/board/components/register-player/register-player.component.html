@@ -1,0 +1,15 @@
+
+<form [formGroup]="participantForm" class="form__content register-player-form position-relative">
+  <button type="button" (click)="close()" class="close-dialog retro-icon-btn"> <i class="gg-close"
+      aria-hidden="true"></i> </button>
+  <div class="form__box mt-3">
+    <input formControlName="name" required type="text" class="form__input" placeholder="Enter Name">
+    <label for="" class="form__label">ENTER NAME</label>
+    <div class="form__shadow"></div>
+  </div>
+  <div class="form__btn__box">
+    <button (click)="addParticipant()" [disabled]="participantForm.invalid" type="submit"
+      class="retro-btn submit-btn"><i class="gg-user-add" aria-hidden="true"></i> Add!</button>
+  </div>
+  <!-- <input type="Submit" class="form__submit" value="Add Participants"> -->
+</form>

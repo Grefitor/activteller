@@ -1,0 +1,11 @@
+<div class="player-list">
+    <ng-container *ngIf="playerList && playerList.length; else noplayers">
+        <app-player *ngFor="let p of playerList" [player]="p"></app-player>
+    </ng-container>
+    <ng-template #noplayers>
+        <div class="no-players">
+            <p>No Participants Present.</p>
+            <p>Please add atleast one.</p>
+        </div>
+    </ng-template>
+</div>

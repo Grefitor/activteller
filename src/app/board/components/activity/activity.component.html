@@ -1,0 +1,32 @@
+<ng-container [ngSwitch]="activity | activityType">
+    <div class="activity-container activity" *ngSwitchCase="'ACTIVITY'">
+        <div class="art-frame">&nbsp;</div>
+        <div class="message">
+            <p class="content">{{content.activity.main_message.title}}</p>
+        </div>
+        <div class="activity-wrapper" *ngIf="activity.activity">
+            <p class="about-activity yellow-bg">
+                {{activity.type}}
+            </p>
+            <p class="content">{{activity?.activity}}</p>
+        </div>
+    </div>
+    <div class="activity-container error" *ngSwitchCase="'ERROR'">
+        <div class="art-frame">&nbsp;</div>
+        <div class="message">
+            <p class="content">{{content.error.main_message.title}}</p>
+        </div>
+        <div class="joke" *ngIf="(_JokeService.joke$ | async) as jokeMessage">
+            <p class="joke-title yellow-bg">{{content.error.joke.title}}</p>
+            <p class="joke-content">{{jokeMessage.joke}}</p>
+        </div>
+    </div>
+    <div class="activity-container no-activity" *ngSwitchDefault>
+        <div class="art-frame">&nbsp;</div>
+        <div class="message">
+            <p class="content">{{content.no_activity.main_message.title}}</p>
+            <p class="content">{{content.no_activity.main_message.message}}</p>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,13 @@
+<div class="shell" [id]="shellId" >
+    <header class="shell-header">
+        <span class="header-dot green-bg">&nbsp;</span>
+        <span class="header-dot yellow-bg">&nbsp;</span>
+        <span class="header-dot purple-bg">&nbsp;</span>
+        <p class="header-content ml-2">
+            <ng-content select="[s-header]"></ng-content>
+        </p>
+    </header>
+    <section class="shell-body shell-bg">
+        <ng-content select="[s-body]"></ng-content>
+    </section>
+</div>

@@ -1,0 +1,5 @@
+<!-- <app-board appRippleAnimation></app-board> -->
+<router-outlet></router-outlet>
+<div *ngIf="_LoaderService.isLoading$ | async" role="alertdialog" class="loader">
+    <h1 class="loader-text" [attr.data-shadow]="'Loading!'">Loading!</h1>
+</div>

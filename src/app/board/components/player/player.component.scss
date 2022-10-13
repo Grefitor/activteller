@@ -1,0 +1,105 @@
+@use '../../../../theme/utility'as *;
+@use '../../../../theme//animations' as *;
+.retro-card__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // width: 100%;
+  min-width: 150px;
+  height: 190px;
+  align-items: center;
+  padding: 6px;
+  border-radius: var(--border-radius);
+  z-index: 0;
+  background-color: white;
+  @include retro-border-shadow;
+
+  .card_image,
+  .card_image_loader {
+    height: 90px;
+    width: 90px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: var(--border-width) solid var(--black);
+    border-radius: 50%;
+  }
+
+  .card_image_loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .spinner {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 2em;
+    }
+
+    span {
+      width: 0.3em;
+      height: 1em;
+      border-radius: 2px;
+      &:nth-of-type(1) {
+        background-color: var(--pink);
+        animation: grow 1s -0.45s ease-in-out infinite;
+      }
+
+      &:nth-of-type(2) {
+        background-color: var(--blue);
+        animation: grow 1s -0.3s ease-in-out infinite;
+      }
+
+      &:nth-of-type(3) {
+        background-color: var(--purple);
+        animation: grow 1s -0.15s ease-in-out infinite;
+      }
+
+      &:nth-of-type(4) {
+        background-color: var(--yellow);
+        animation: grow 1s ease-in-out infinite;
+      }
+    }
+
+  }
+
+  .name {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+  }
+
+  .remove {
+    position: absolute;
+    border-radius: 50%;
+    bottom: -2rem;
+    padding: 10px;
+    min-width: unset;
+    @include retro-border-shadow($shadow: var(--pink), $Y: 2px);
+    // border: var(--border-width) solid var(--black);
+    // box-shadow: var(--shadow-X) var(--shadow-Y) var(--pink);		
+  }
+
+  &:not(.image-loaded) {
+    .card_image {
+      display: none;
+    }
+
+    .card_image-loader {
+      display: inline-block;
+    }
+  }
+
+  &.image-loaded {
+    .card_image_loader {
+      display: none !important;
+    }
+
+    .card_image {
+      display: initial;
+    }
+  }
+}
