@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Renderer2, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ShepherdService } from 'angular-shepherd';
-import { GuidedTour, GuidedTourService, Orientation } from 'ngx-guided-tour';
 import { take, timer } from 'rxjs';
 import { SCREEN_MESSAGES } from 'src/app/constants/messages';
 import { BoardService } from '../../services/board.service';
@@ -16,7 +15,7 @@ export class BoardComponent implements OnInit, AfterViewInit {
 
   @ViewChild('addParticipantDialog', { read: ElementRef, static: true }) addParticipantDialog: ElementRef<any> | null = null
   highlightBtn = false
-  constructor(public _BoardService: BoardService, private guidedTourService: GuidedTourService, private cdr: ChangeDetectorRef, private shepherdService: ShepherdService) { }
+  constructor(public _BoardService: BoardService, private cdr: ChangeDetectorRef, private shepherdService: ShepherdService) { }
 
   ngOnInit(): void {
     this._BoardService.setUpBoard();

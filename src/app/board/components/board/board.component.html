@@ -2,7 +2,7 @@
   <header class="header logo flex w-auto">
     <app-logo text="Activteller"></app-logo>
   </header>
-  <article class="about">
+  <article class="about scale-in-center-500-1500">
     <p>{{messages.welcome.question}}</p>
     <p>{{messages.welcome.answer}}</p>
     <div class="accent-wrapper flex">
@@ -12,28 +12,28 @@
       </div>
     </div>
   </article>
-  <section class="controls no-border">
+  <section class="controls no-border scale-in-ver-center-500-2500">
     <button id="add-player-btn" class="retro-btn {{highlightBtn ? 'shake-lr': ''}}" (click)="addPlayerInBoard()"><i class="gg-user-add"
         aria-hidden="true"></i>Add Participants!</button>
     <button id="fetch-activity-btn" class="retro-btn" (click)="fetchActivity()"><i class="gg-infinity"
         aria-hidden="true"></i> Find A Random Activity!</button>
   </section>
 
-  <section class="output no-border">
+  <section class="output no-border scale-in-ver-center-500-2500">
     <app-shell-view shellId="activity">
       <h1 class="font-bold" s-header>Activity</h1>
       <app-activity s-body [activity]="_BoardService.activity$ | async"></app-activity>
     </app-shell-view>
   </section>
 
-  <section class="player-list no-border">
+  <section class="player-list no-border scale-in-ver-center-500-2500">
     <app-shell-view shellId="participant">
       <h1 class="font-bold" s-header>Participants ({{_BoardService.playerCount$ | async }})</h1>
       <app-player-list s-body [playerList]="_BoardService.players$ | async"></app-player-list>
     </app-shell-view>
   </section>
 </div>
-<div class="btn-wrapper">
+<div class="btn-wrapper scale-in-center-500-2000">
   <button (click)="startTutorial()" id="tutorial-btn" class="retro-icon-btn with-hint display-hint">
     <i class="gg-play-button" aria-hidden="true"></i>
     <label class="hint" for="#tutorial-btn">Play Tutorial!</label>

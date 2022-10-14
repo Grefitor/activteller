@@ -28,9 +28,7 @@ export class RegisterPlayerComponent implements OnInit, AfterViewInit {
     this.close()
   }
   
-  ngAfterViewInit(): void {
-    console.log(this.dialogRef)
-  }
+  ngAfterViewInit(): void {}
 
 
   close() {

@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@use './theme/utility'as *;
 @use './theme/variables'as *;
-@use './theme/animations'as *;
+// @use './theme/animations'as *;
+@use './theme/utility'as *;
 
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
-@import '../node_modules/ngx-guided-tour/scss/guided-tour-base-theme.scss';
+
 @import '../node_modules/shepherd.js/dist/css/shepherd.css';
 html,
 body {

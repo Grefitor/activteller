@@ -1,5 +1,5 @@
 <ng-container [ngSwitch]="activity | activityType">
-    <div class="activity-container activity" *ngSwitchCase="'ACTIVITY'">
+    <div class="activity-container activity scale-in-center-500" *ngSwitchCase="'ACTIVITY'">
         <div class="art-frame">&nbsp;</div>
         <div class="message">
             <p class="content">{{content.activity.main_message.title}}</p>
@@ -11,7 +11,7 @@
             <p class="content">{{activity?.activity}}</p>
         </div>
     </div>
-    <div class="activity-container error" *ngSwitchCase="'ERROR'">
+    <div class="activity-container error scale-in-center-500" *ngSwitchCase="'ERROR'">
         <div class="art-frame">&nbsp;</div>
         <div class="message">
             <p class="content">{{content.error.main_message.title}}</p>

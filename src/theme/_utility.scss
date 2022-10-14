@@ -110,16 +110,6 @@ $dot-color: var(--purple-none);
   animation: ripple 0.25s ease;
 }
 
-
-@mixin retro-border-shadow($bg: var(--white), $border-width: var(--border-width), $border: var(--black), $shadow: var(--black), $X: var(--shadow-X), $Y:var(--shadow-Y), $display-shadow: true) {
-  background-color: $bg;
-  border: $border-width solid $border;
-  @if $display-shadow {
-    box-shadow: $X $Y $shadow;
-  }
-}
-
-
 .accent-wrapper {
   display: flex;
   align-items: center;
@@ -160,7 +150,9 @@ $dot-color: var(--purple-none);
   height: fit-content;
   width: fit-content;
   overflow: initial;
-  @include scale-in-center(0.2s);
+  // @include scale-in-center(0.2s);
+
+  @extend .scale-in-center-200 !optional;
 
   &::backdrop {
     background-image: linear-gradient(90deg, rgba(242, 75, 214, 0.8562018557422969) 22%, rgba(112, 92, 242, 0.8281906512605042) 42%, rgba(5, 219, 242, 1) 100%);

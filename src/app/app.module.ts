@@ -16,7 +16,6 @@ import { ActivityEffect } from './store/effects/activity.effect';
 import { LoaderService } from './services/loader.service';
 import { JokeEffect } from './store/effects/joke.effect';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { GuidedTourComponent, GuidedTourService } from 'ngx-guided-tour';
 import { ShepherdService } from 'angular-shepherd';
 import { DemoComponent } from './demo/demo.component';
 @NgModule({
@@ -37,7 +36,6 @@ import { DemoComponent } from './demo/demo.component';
   providers: [
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    GuidedTourService,
     ShepherdService
   ],
   bootstrap: [AppComponent]

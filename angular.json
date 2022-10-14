@@ -48,7 +48,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10kb",
+                  "maximumWarning": "4kb",
                   "maximumError": "10kb"
                 }
               ],
@@ -80,15 +80,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
         "options": {
-            "browserTarget": "onboarding-exp:build",
+            "browserTarget": "activteller:build",
             "proxyConfig": "src/proxy.conf.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "onboarding-exp:build:production"
+              "browserTarget": "activteller:build:production"
             },
             "development": {
-              "browserTarget": "onboarding-exp:build:development"
+              "browserTarget": "activteller:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "onboarding-exp:build"
+            "browserTarget": "activteller:build"
           }
         },
         "test": {

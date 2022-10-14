@@ -1,5 +1,5 @@
-@use '../../../../theme/utility'as utility;
-@use '../../../../theme/animations' as *;
+@use '../../../../theme/mixin' as mixin;
+// @use '../../../../theme/animations' as *;
 .activity-container {
   min-height: 290px;
   display: flex;
@@ -7,7 +7,7 @@
   &.activity {
     flex-direction: column;
     align-items: center;
-    @include scale-in-center($duration: .5s);
+    // @include scale-in-center($duration: .5s);
     .art-frame {
       margin-block: 1rem;
       background-image: url('../../../../assets/found.gif');
@@ -16,7 +16,7 @@
       background-repeat: no-repeat;
       background-position: center;
       width: 10rem;
-      @include utility.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
+      @include mixin.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
     }
 
     .message {
@@ -40,7 +40,7 @@
     .activity-wrapper {
         margin-block: 1rem;
         margin-inline: 1rem;
-        @include utility.retro-border-shadow($border: var(--green), $display-shadow: false);
+        @include mixin.retro-border-shadow($border: var(--green), $display-shadow: false);
         .content {
             padding-inline: 10px;
             text-align: center;
@@ -67,7 +67,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       width: 15rem;
-      @include utility.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
+      @include mixin.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
     }
 
     .message {
@@ -92,7 +92,7 @@
   &.error {
     flex-direction: column;
     align-items: center;
-    @include scale-in-center($duration: .5s);
+    // @include scale-in-center($duration: .5s);
     .art-frame {
       margin-block: 1rem;
       background-image: url('../../../../assets/sorry.gif');
@@ -100,7 +100,7 @@
       background-size: contain;
       background-repeat: no-repeat;
       width: 7rem;
-      @include utility.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
+      @include mixin.retro-border-shadow($shadow: var(--purple), $border: var(--pink));
     }
 
     .message {
@@ -124,7 +124,7 @@
     .joke {
       margin-block: 10px;
       margin-inline: 1rem;
-      @include utility.retro-border-shadow($border: var(--purple), $display-shadow: false);
+      @include mixin.retro-border-shadow($border: var(--purple), $display-shadow: false);
 
       .joke-title,
       .joke-content {

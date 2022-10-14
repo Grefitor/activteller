@@ -1,5 +1,5 @@
-@use '../../../../theme/utility' as *;
-@use '../../../../theme/animations' as *;
+@use '../../../../theme/mixin' as *;
+// @use '../../../../theme/animations' as *;
 
 :host {
     height: 100%;
@@ -29,7 +29,7 @@
         text-align: center;
         grid-row: 2 / span 1;
         grid-column: 1 / span end;
-        @include scale-in-center($delay: 1.5s)
+        // @include scale-in-center($delay: 1.5s)
     }
 
     .controls {
@@ -39,7 +39,7 @@
         align-items: center;
         justify-content: center; 
         gap: 1rem;
-        @include scale-in-ver-center($delay: var(--animation-duration));
+        // @include scale-in-ver-center($delay: var(--animation-duration));
     }
 
     .player-list {
@@ -47,13 +47,13 @@
         grid-column: 1 / span 6;
         overflow: hidden;
         overflow-y: auto;
-        @include scale-in-ver-center($delay: var(--animation-duration));
+        // @include scale-in-ver-center($delay: var(--animation-duration));
     }
     
     .output {
         grid-row: 5 / span end;
         grid-column: 7 / span end; 
-        @include scale-in-ver-center($delay: var(--animation-duration));
+        // @include scale-in-ver-center($delay: var(--animation-duration));
     }
 }
 
@@ -61,5 +61,5 @@
     position: fixed;
     right: 25px;
     top: 40px;
-    @include scale-in-center($delay: 2s);
+    // @include scale-in-center($delay: 2s);
 }

@@ -1,0 +1,73 @@
+@mixin retro-border-shadow($bg: var(--white), $border-width: var(--border-width), $border: var(--black), $shadow: var(--black), $X: var(--shadow-X), $Y: var(--shadow-Y), $display-shadow: true) {
+    background-color: $bg;
+    border: $border-width solid $border;
+
+    @if $display-shadow {
+        box-shadow: $X $Y $shadow;
+    }
+}
+
+@mixin scale-in-center($duration: .5s, $delay: 0s) {
+    -webkit-animation: scale-in-center $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: $delay;
+}
+
+@mixin scale-in-ver-center($duration: 0.5s, $delay: 0s) {
+    -webkit-animation: scale-in-ver-center $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-ver-center $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-delay: $delay;
+}
+
+@mixin text-focus-in($duration: 0.5s, $delay: 0s) {
+    -webkit-animation: text-focus-in $duration cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in $duration cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation-delay: $delay;
+}
+
+@mixin color-change-3x($duration: 4s) {
+    -webkit-animation: color-change $duration linear infinite alternate both;
+    animation: color-change $duration linear infinite alternate both;
+}
+
+@mixin generate-scale-in-center-classes($durations, $delays) {
+    @each $duration in $durations {
+        @each $delay in $delays {
+            @if $delay ==0 {
+                .scale-in-center-#{$duration} {
+                    $dur: #{$duration}ms;
+                    @include scale-in-center($duration: $dur);
+                }
+            }
+
+            @else {
+                .scale-in-center-#{$duration}-#{$delay} {
+                    $dur: #{$duration}ms;
+                    $del: #{$delay}ms;
+                    @include scale-in-center($duration: $dur, $delay: $del);
+                }
+            }
+        }
+    }
+}
+
+@mixin generate-scale-in-ver-center-classes($durations, $delays) {
+    @each $duration in $durations {
+        @each $delay in $delays {
+            @if $delay ==0 {
+                .scale-in-ver-center-#{$duration} {
+                    $dur: #{$duration}ms;
+                    @include scale-in-ver-center($duration: $dur);
+                }
+            }
+
+            @else {
+                .scale-in-ver-center-#{$duration}-#{$delay} {
+                    $dur: #{$duration}ms;
+                    $del: #{$delay}ms;
+                    @include scale-in-ver-center($duration: $dur, $delay: $del);
+                }
+            }
+        }
+    }
+}
