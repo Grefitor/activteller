@@ -10,10 +10,10 @@ app.use(express.static(__dirname + "/dist/activteller"));
 
 app.get("/*", (req, res) => {
   // Accept: text/*, application/json
-//   req.accepts("html");
+  req.accepts("html");
   // => "html"
-//   req.accepts("text/html");
-
+  req.accepts("text/html");
+  
   res.sendFile(path.join(dep));
 });
 
